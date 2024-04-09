@@ -1,0 +1,22 @@
+<select [(ngModel)] = "selectedOperator" (ngModelChange)="calc()">
+<option
+*ngFor = "let operation of operations"
+[value]="operation.value"
+>
+{{operation.label}}
+
+</option>
+</select>
+
+<br>
+
+<h3>You Selected {{selectedOperator}} </h3>
+
+<input type="text" [(ngModel)]="num1" (keyup)="calc()">
+<input type="text" [(ngModel)]="num2" (keyup)="calc()" >
+
+<h3>Result:{{sum}} </h3>
+<div *ngIf="selectedOperator">
+<img *ngIf="selectedOperator=== 'circle'" src="/assets/circle.png" alt="Circle" width="240" height="200">
+     <img *ngIf="selectedOperator=== 'rectangle'" src="/assets/rectangle.jpg" alt="Rectangle" width="200" height="200">
+ </div>
